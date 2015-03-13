@@ -4,14 +4,6 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-
-// Brands Services API Call
-
-// https://api.edmunds.com/api/vehicle/v2/{make}/models?fmt=json&api_key={api key}
-// Key: 4qrx8smuux5gssn9nahunxc3 
-// Secret: 2jaU67NvT42kfZD9uzZCh78n
-
-
 // Services API Section
 $('.services-button').on('click', function(e){
   e.preventDefault();
@@ -38,7 +30,7 @@ $('.services-button').on('click', function(e){
       var thing = "<tr><td>" + uniqueNames[i] + "</td>" + "<td>" + uniqueNames[i+1] + "</td>" + "<td>" + uniqueNames[i+2] + "</td></tr>"
       html += thing
     };
-    
+
     $(".services-content").append(html);
     html += "</table>"
   });
