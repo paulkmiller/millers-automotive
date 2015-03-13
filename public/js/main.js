@@ -11,24 +11,25 @@
 // Key: 4qrx8smuux5gssn9nahunxc3 
 // Secret: 2jaU67NvT42kfZD9uzZCh78n
 
-var make = "ford"
-var html = ""
-var url = "https://api.edmunds.com/api/vehicle/v2/" + make + "/models?fmt=json&api_key=4qrx8smuux5gssn9nahunxc3"
-function test(){
 
-$.get(url, function( data ) {
 
+$('.services-button').on('click', function(e){
+  e.preventDefault();
+
+  var make = thisdata = $(this).attr('data-info');
+  var html = ""
+  var url = "https://api.edmunds.com/api/vehicle/v2/" + make + "/models?fmt=json&api_key=4qrx8smuux5gssn9nahunxc3"
+
+  $.get(url, function(data) {
     var modelsArray = data.models
-
     for (var i = 0; i < modelsArray.length; i++) {
       var thing = "<h1>" + modelsArray[i].name + "</h1>"
       html += thing
-      $("#services").append(html);
-     };
+      $(".services-content").append(html);
 
-  })
-
-}
+    };
+  });
+});
 
 // jQuery to collapse the navbar on scroll
 $(window).scroll(function() {
