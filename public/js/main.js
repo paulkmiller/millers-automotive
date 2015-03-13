@@ -16,14 +16,23 @@
 $('.services-button').on('click', function(e){
   e.preventDefault();
 
-  var make = thisdata = $(this).attr('data-info');
+  var make = $(this).attr('data-info');
   var html = ""
   var url = "https://api.edmunds.com/api/vehicle/v2/" + make + "/models?fmt=json&api_key=4qrx8smuux5gssn9nahunxc3"
 
   $.get(url, function(data) {
     var modelsArray = data.models
-    for (var i = 0; i < modelsArray.length; i++) {
-      var thing = "<h1>" + modelsArray[i].name + "</h1>"
+    var namesArray = []
+
+    for (var i = 0; i < modelsArray.length; i++){
+      namesArray.push(modelsArray[i].name)
+    }
+
+
+    var $namesArray = $.unique(namesArray);
+
+    for (var i = 0; i < 5; i++) {
+      var thing = "<h1>" + $namesArray[i] + "</h1>"
       html += thing
       $(".services-content").append(html);
 
