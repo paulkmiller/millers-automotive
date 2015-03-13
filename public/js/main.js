@@ -20,6 +20,7 @@ $('.services-button').on('click', function(e){
   var html = ""
   var url = "https://api.edmunds.com/api/vehicle/v2/" + make + "/models?fmt=json&api_key=4qrx8smuux5gssn9nahunxc3"
 
+
   $.get(url, function(data) {
     var modelsArray = data.models
     var namesArray = []
@@ -27,16 +28,24 @@ $('.services-button').on('click', function(e){
     for (var i = 0; i < modelsArray.length; i++){
       namesArray.push(modelsArray[i].name)
     }
+    // var namesArray namesArray.shuffle
+    var uniqueNames = []    
 
+    $.each(namesArray, function(i, el){
+      if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+    });
+    
+    $(".services-content").html('');
+    html += "<table class='servicelist'>"
 
-    var $namesArray = $.unique(namesArray);
-
-    for (var i = 0; i < 5; i++) {
-      var thing = "<h1>" + $namesArray[i] + "</h1>"
+    for (var i = 0; i < uniqueNames.length; i+=3) {
+      var thing = "<tr><td>" + uniqueNames[i] + "</td>" + "<td>" + uniqueNames[i+1] + "</td>" + "<td>" + uniqueNames[i+2] + "</td></tr>"
       html += thing
-      $(".services-content").append(html);
-
     };
+
+    $(".services-content").append(html);
+    html += "</table>"
+
   });
 });
 
