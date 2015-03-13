@@ -151,6 +151,12 @@ a:focus {
     font-size: 26px;
   }
 }
+@media (max-width: 568px) {
+  .intro {
+    height: 100%;
+    widht: auto;
+  }
+}
 .btn-circle {
   width: 70px;
   height: 70px;
