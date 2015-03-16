@@ -247,6 +247,11 @@ a:focus {
   padding: 50px 0;
   color: white;
 }
+.services-section h5 {
+  letter-spacing: .3rem;
+  margin-top: -20px;
+  color: #4d4d4d;
+}
 .about-section {
   height: auto;
   width: 100%;
