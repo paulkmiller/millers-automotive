@@ -452,8 +452,6 @@ a {
   }
 }
 
-// Portfolio Begin //
-
 
 .box{
   background-color:rgba(0,0,0,.5);
@@ -481,6 +479,52 @@ blockquote {
   width: 100%;
   height: 200px;
   margin-top: 20px;
+}
+
+footer {
+  color: #ccc;
+  padding: 50px 0;
+  p {
+    letter-spacing: .5rem;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
+
+::-moz-selection {
+  text-shadow: none;
+  background: #fcfcfc;
+  background: fade(white, 20%);
+}
+
+::selection {
+  text-shadow: none;
+  background: #fcfcfc;
+  background: fade(white, 20%);
+}
+
+img::selection {
+  background: transparent;
+}
+
+img::-moz-selection {
+  background: transparent;
+}
+
+@media only screen and (max-width: 992px) {
+
+  /* PORTFOLIO */
+  .cbp-l-inline-left {
+    float:left;
+    width:100%;
+  }
+
+  .cbp-l-inline-right {
+    float:right;
+    padding:35px;
+    width:100%;
+  }
+
 }
 
 @media(min-width:767px) {
@@ -540,38 +584,4 @@ ul.banner-social-buttons {
       }
     }
   }
-}
-
-footer {
-  color: #ccc;
-  padding: 50px 0;
-  p {
-    letter-spacing: .5rem;
-    font-size: 1.5rem;
-    margin: 0;
-  }
-}
-
-::-moz-selection {
-  text-shadow: none;
-  background: #fcfcfc;
-  background: fade(white, 20%);
-}
-
-::selection {
-  text-shadow: none;
-  background: #fcfcfc;
-  background: fade(white, 20%);
-}
-
-img::selection {
-  background: transparent;
-}
-
-img::-moz-selection {
-  background: transparent;
-}
-
-body {
-  webkit-tap-highlight-color: fade(white, 20%);
 }
