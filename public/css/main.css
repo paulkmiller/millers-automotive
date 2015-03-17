@@ -251,6 +251,11 @@ a:focus {
   letter-spacing: .3rem;
   margin-top: -20px;
   color: #4d4d4d;
+  font-size: 2rem;
+}
+.services-section h5 span {
+  font-size: .6em;
+  line-height: 100%;
 }
 .about-section {
   height: auto;
@@ -262,6 +267,157 @@ a:focus {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+}
+.cbp-l-filters-alignCenter .cbp-filter-counter {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -webkit-transition: all .3s ease;
+  background: none repeat scroll 0 0 #fff;
+  border-radius: 5px;
+  border: solid 2px #000;
+  bottom: 0;
+  color: #000;
+  font-size: 11px;
+  left: 0;
+  margin: 0 auto;
+  opacity: 0;
+  padding: 4px 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  transition: all .3s ease;
+  width: 34px;
+}
+.cbp-l-filters-alignCenter .cbp-filter-counter:before {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #000;
+  bottom: -5px;
+  content: "";
+  display: none;
+  height: 0;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 0;
+}
+.cbp-l-grid-gallery .cbp-item {
+  width: 390px;
+  height: 288px;
+}
+.cbp-caption-defaultWrap img {
+  width: 100%;
+}
+.cbp-caption-zoom .cbp-caption-activeWrap {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(115, 115, 128, 0.15);
+  -webkit-transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.cbp-caption-zoom .cbp-caption:hover .cbp-caption-activeWrap {
+  opacity: 0;
+}
+.cbp-l-caption-title {
+  color: #fff;
+  font: 700 11px 'Montserrat', sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.cbp-l-caption-desc {
+  color: #F2F2F2;
+  font: 700 10px 'Rokkitt', serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.cbp-caption-pushTop .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-pushDown .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-revealBottom .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-revealTop .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-overlayBottom .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-overlayRightAlong .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-fadeIn .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-zoom .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-minimal .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-moveRight .cbp-l-caption-alignLeft .cbp-l-caption-body,
+.cbp-caption-revealLeft .cbp-l-caption-alignLeft .cbp-l-caption-body {
+  position: absolute;
+  left: 50px;
+  bottom: 45px;
+  margin: 0;
+  text-align: left;
+}
+.cbp-l-inline-right {
+  float: right;
+  padding: 35px;
+  width: 56%;
+}
+.cbp-l-inline {
+  margin-bottom: 20px;
+  overflow: hidden;
+  margin-top: 10px;
+  background: #fff;
+  padding: 0px;
+}
+.cbp-l-inline-title {
+  color: #3AB074;
+  font: 700 14px/28px 'Montserrat', sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.cbp-l-inline-subtitle {
+  color: #000;
+  font: 700 11px "Rokkitt", sans-serif;
+  letter-spacing: 3px;
+  margin: 3px 0 25px;
+  text-transform: uppercase;
+}
+.cbp-l-inline-desc {
+  color: #000;
+  font: 400 18px/30px "Rokkitt", sans-serif;
+  letter-spacing: 1px;
+}
+.cbp-l-inline-view {
+  background-color: #F0F5F2;
+  border-radius: 5px;
+  border: medium none;
+  color: #000;
+  display: inline-block;
+  font: 700 10px 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  margin: 25px 0 0;
+  padding: 7px 30px;
+  text-decoration: none;
+  transition: all 0.3s ease-in 0s;
+}
+.cbp-l-inline-view:hover {
+  border-color: #000;
+  background: #3AB074;
+  color: #fff;
+}
+.cbp-popup-singlePageInline .cbp-popup-close {
+  -webkit-transition: all 0.2s ease-in 0s;
+  background: none;
+  color: #000;
+  font-size: 40px;
+  right: 30px;
+  top: 40px;
+  transition: all 0.2s ease-in 0s;
+}
+.cbp-popup-singlePageInline .cbp-popup-close:hover {
+  background: none;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 40px;
+  right: 30px;
+  top: 40px;
+}
+.portfolio-section h1 {
+  text-align: center;
 }
 .box {
   background-color: rgba(0, 0, 0, 0.5);

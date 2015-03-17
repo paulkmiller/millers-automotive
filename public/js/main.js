@@ -19,22 +19,24 @@ $('.services-button').on('click', function(e){
       namesArray.push(modelsArray[i].name)
     }
 
-    var uniqueNames = []    
-    $.each(namesArray, function(i, el){
-      if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
-    });
+        var uniqueNames = []    
+        $.each(namesArray, function(i, el){
+          if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+        });
 
-    $(".services-content").html('');
-    html += "<table class='servicelist'>"
-    for (var i = 0; i < uniqueNames.length; i+=3) {
-      var results = "<tr><td>" + uniqueNames[i] + "</td>" + "<td>" + uniqueNames[i+1] + "</td>" + "<td>" + uniqueNames[i+2] + "</td></tr>"
-      html += results
-    };
+        $(".services-content").html('');
+        html += "<table class='servicelist'>"
+        for (var i = 0; i < uniqueNames.length; i+=3) {
+          var results = "<tr><td>" + uniqueNames[i] + "</td>" + "<td>" + uniqueNames[i+1] + "</td>" + "<td>" + uniqueNames[i+2] + "</td></tr>"
+          html += results
+        };
+
 
     $(".services-content").append(html);
     html += "</table>"
   });
 });
+
 
 // jQuery to collapse the navbar on scroll
 $(window).scroll(function() {
@@ -45,7 +47,7 @@ $(window).scroll(function() {
   }
 });
 
-// jQuery for page scrolling feature - requires jQuery Easing plugin
+// jQuery for page scrolling feature
 $(function() {
   $('a.page-scroll').bind('click', function(event) {
     var $anchor = $(this);
@@ -193,3 +195,126 @@ function init() {
       map: map,
     });
   }
+
+$(function(){
+    var gridContainer = $('#grid-container'),
+        filtersContainer = $('#filters-container');
+
+  // init cubeportfolio
+    gridContainer.cubeportfolio({
+
+        defaultFilter: '*',
+
+        animationType: 'rotateSides',
+
+        gapHorizontal: 5,
+
+        gapVertical: 2,
+
+        gridAdjustment: 'responsive',
+
+        caption: 'zoom',
+
+        displayType: 'sequentially',
+
+        displayTypeSpeed: 100,
+
+        // lightbox
+        lightboxDelegate: '.cbp-lightbox',
+        lightboxGallery: true,
+        lightboxTitleSrc: 'data-title',
+        lightboxShowCounter: true,
+
+        // singlePage popup
+        singlePageDelegate: '.cbp-singlePage',
+        singlePageDeeplinking: true,
+        singlePageStickyNavigation: true,
+        singlePageShowCounter: true,
+        singlePageCallback: function (url, element) {
+            // to update singlePage content use the following method: this.updateSinglePage(yourContent)
+        },
+
+        // singlePageInline
+        singlePageInlineDelegate: '.cbp-singlePageInline',
+        singlePageInlinePosition: 'below',
+        singlePageInlineShowCounter: true,
+        singlePageInlineInFocus: true,
+        singlePageInlineCallback: function(url, element) {
+
+            // to update singlePageInline content use the following method: this.updateSinglePageInline(yourContent)
+            var t = this;
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'html',
+                timeout: 5000
+            })
+            .done(function(result) {
+
+                t.updateSinglePageInline(result);
+
+            })
+            .fail(function() {
+                t.updateSinglePageInline("Error! Please refresh the page!");
+            });
+
+        }
+    });
+
+// add listener for load more click
+    $('.cbp-l-loadMore-button-link').on('click', function(e) {
+
+        e.preventDefault();
+
+        var clicks, me = $(this), oMsg;
+
+        if (me.hasClass('cbp-l-loadMore-button-stop')) return;
+
+        // get the number of times the loadMore link has been clicked
+        clicks = $.data(this, 'numberOfClicks');
+        clicks = (clicks)? ++clicks : 1;
+        $.data(this, 'numberOfClicks', clicks);
+
+        // set loading status
+        oMsg = me.text();
+        me.text('LOADING...');
+
+        // perform ajax request
+        $.ajax({
+            url: me.attr('href'),
+            type: 'GET',
+            dataType: 'HTML'
+        })
+        .done( function (result) {
+            var items, itemsNext;
+
+            // find current container
+            items = $(result).filter( function () {
+                return $(this).is('div' + '.cbp-loadMore-block' + clicks);
+            });
+
+            gridContainer.cubeportfolio('appendItems', items.html(),
+                 function () {
+                    // put the original message back
+                    me.text(oMsg);
+
+                    // check if we have more works
+                    itemsNext = $(result).filter( function () {
+                        return $(this).is('div' + '.cbp-loadMore-block' + (clicks + 1));
+                    });
+
+                    if (itemsNext.length === 0) {
+                        me.text('NO MORE WORKS');
+                        me.addClass('cbp-l-loadMore-button-stop');
+                    }
+
+                 });
+
+        })
+        .fail(function() {
+            // error
+        });
+
+    });
+})
