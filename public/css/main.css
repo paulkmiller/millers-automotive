@@ -438,6 +438,12 @@ a:focus {
 blockquote {
   border: 0px !important;
 }
+blockquote p {
+  line-height: 3rem;
+}
+blockquote .jackson-endorsement {
+  margin-top: -10px;
+}
 #map {
   width: 100%;
   height: 200px;
